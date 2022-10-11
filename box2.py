@@ -1,4 +1,4 @@
-from pinn.utils import smallest_significant_effect_ttest
+from pinn.utils import tt_critical_effect_size
 
 if __name__ == "__main__":
     # impact of bonferroni correction on smallest detectable effect
@@ -8,10 +8,8 @@ if __name__ == "__main__":
 
     comparisons = rois * (rois - 1) // 2
 
-    effect_uncorrected = smallest_significant_effect_ttest(sample_size, alpha)
-    effect_corrected = smallest_significant_effect_ttest(
-        sample_size, alpha / comparisons
-    )
+    effect_uncorrected = tt_critical_effect_size(sample_size, alpha)
+    effect_corrected = tt_critical_effect_size(sample_size, alpha / comparisons)
 
     print(
         f"Smallest detectable effect before Bonferroni (alpha = {alpha}) is "

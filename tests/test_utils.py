@@ -8,7 +8,7 @@ def test_smallest_effect_size():
     alpha = 0.05
     epsilon = 0.01
 
-    smallest_effect = utils.smallest_significant_effect_ttest(sample_size, alpha)
+    smallest_effect = utils.tt_critical_effect_size(sample_size, alpha)
 
     def d_to_p(d, n=sample_size):
         t = d * np.sqrt(n / 2)
